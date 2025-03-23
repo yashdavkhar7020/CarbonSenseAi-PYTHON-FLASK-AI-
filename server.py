@@ -10,7 +10,7 @@ app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 
 # Cloud Run API URL
-CLOUD_RUN_URL = "https://carbonsenseai-761956098269.asia-south1.run.app"
+CLOUD_RUN_URL = *****************************************
 
 @app.route('/get-ai-suggestions', methods=['POST'])
 def get_ai_suggestions():
@@ -62,7 +62,7 @@ def get_ai_suggestions():
         logging.info(f"Request body for Gemini API: {request_body}")
 
         response = requests.post(
-            f'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={GOOGLE_API_KEY}',
+            *****************************************************************
             json=request_body,
             headers={'Content-Type': 'application/json'}
         )
