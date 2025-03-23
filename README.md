@@ -6,14 +6,13 @@
 ## Table of Contents
 - [Problem Statement](#problem-statement)
 - [Solution](#solution)
-- [Deployed Application](#deployed-application)
 - [Installation](#installation)
 - [Web Application](#web-application)
   - [Frontend](#frontend)
   - [Backend](#backend)
 - [Usage](#usage)
   - [Emissions Tracking](#emissions-tracking)
-- [Example Login](#example-login)
+
 
 ## Problem Statement
 Industries face growing pressure to track and reduce carbon emissions due to regulatory policies and climate change concerns. However, existing solutions are expensive, consultant-driven, and lack real-time tracking capabilities. Industries need a **cost-effective, automated, and AI-powered** tool to monitor and minimize their carbon footprint.
@@ -30,7 +29,7 @@ Industries face growing pressure to track and reduce carbon emissions due to reg
 ## Installation
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-repo/carbon-sense-ai.git
+   git clone (https://github.com/yashdavkhar7020/CarbonSenseAi-PYTHON-FLASK-AI-)
    ```
 2. Navigate to the project directory:
    ```sh
@@ -73,7 +72,7 @@ This folder contains the backend code for the Carbon Sense AI web application, b
 #### Installation
 1. Navigate to the `backend` directory:
    ```sh
-   cd backend
+   cd server.py
    ```
 2. Create a virtual environment:
    ```sh
