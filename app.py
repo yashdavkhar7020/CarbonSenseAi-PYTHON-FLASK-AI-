@@ -16,7 +16,7 @@ port = int(os.environ.get("PORT", 8501))  # Default Streamlit port is 8501
 
 # Constants
 MARKET_RATE_PER_TON = 10  # Example market rate for carbon credits in USD per ton
-SERVER_URL = 'https://carbonsenseai-761956098269.asia-south1.run.app'  # Cloud Run API URL
+SERVER_URL = ************************************  # Cloud Run API URL
 
 #SERVER_URL = 'http://localhost:5000'  # URL of your backend server
 
