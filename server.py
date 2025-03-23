@@ -9,6 +9,9 @@ app = Flask(__name__)
 # Setup logging
 logging.basicConfig(level=logging.INFO)
 
+# Cloud Run API URL
+CLOUD_RUN_URL = "https://carbonsenseai-761956098269.asia-south1.run.app"
+
 @app.route('/get-ai-suggestions', methods=['POST'])
 def get_ai_suggestions():
     data = request.json
@@ -36,13 +39,20 @@ def get_ai_suggestions():
                 {
                     "parts": [
                         {
-                            "text": (f"Based on the following data: Total Emissions: {total_emissions} tons CO2, "
-                                     f"Per Capita Emissions: {per_capita_emissions} tons CO2 per person, and "
-                                     f"Emission Reduction of {emission_reduction} tons co2, provide suggestions and pathways "
-                                     "for achieving carbon neutrality in a structured format. Please provide each "
-                                     "suggestion as a separate object with the following properties: id, title, "
-                                     "description, category, numeric cost analysis and recommendations, Policies introduced my indian government. every property should have bullet point and every property should start from new line  Each recommendation should be a "
-                                     "bullet point with a brief description, and should include a unique id and a brief description.")
+                            "text": (f"Based on the following data:\n\n"
+                                     f"• **Total Emissions:** {total_emissions} tons CO2\n"
+                                     f"• **Per Capita Emissions:** {per_capita_emissions} tons CO2 per person\n"
+                                     f"• **Emission Reduction Target:** {emission_reduction} tons CO2\n\n"
+                                     "Provide actionable pathways for achieving carbon neutrality in a structured format.\n\n"
+                                     "Each suggestion should be an **object** with the following properties:\n\n"
+                                     "• **ID**\n"
+                                     "• **Title**\n"
+                                     "• **Description**\n"
+                                     "• **Category**\n"
+                                     "• **Numeric cost analysis & recommendations**\n"
+                                     "• **Policies introduced by the Indian government**\n\n"
+                                     "Each property should be formatted as a bullet point, starting from a new line."
+                            )
                         }
                     ]
                 }
@@ -82,5 +92,7 @@ def get_ai_suggestions():
         logging.error(f"An unexpected error occurred: {e}")
         return jsonify({'error': 'An unexpected error occurred'}), 500
 
+# Ensure the app listens on PORT for Google Cloud Run
 if __name__ == '__main__':
-    app.run(port=5000)
+    port = int(os.environ.get("PORT", 8080))  # Default to 8080 for Cloud Run
+    app.run(host="0.0.0.0", port=port)
