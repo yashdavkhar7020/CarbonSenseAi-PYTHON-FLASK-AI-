@@ -192,6 +192,8 @@ from streamlit_folium import folium_static
 
 # Constants
 MARKET_RATE_PER_TON = 10  # Example market rate for carbon credits in USD per ton
+SERVER_URL = 'https://carbonsenseai-761956098269.asia-south1.run.app'  # Cloud Run API URL
+
 SERVER_URL = 'http://localhost:5000'  # URL of your backend server
 
 total_emissions = 0.0
