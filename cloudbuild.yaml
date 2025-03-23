@@ -1,0 +1,19 @@
+steps:
+  # Step 1: Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/carbonsenseai', '.' ]
+
+  # Step 2: Push the image to Google Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'push', 'gcr.io/$PROJECT_ID/carbonsenseai' ]
+
+  # Step 3: Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args: [
+      'run', 'deploy', 'carbonsenseai',
+      '--image', 'gcr.io/$PROJECT_ID/carbonsenseai',
+      '--region', 'asia-south1',
+      '--platform', 'managed',
+      '--allow-unauthenticated'
+    ]
