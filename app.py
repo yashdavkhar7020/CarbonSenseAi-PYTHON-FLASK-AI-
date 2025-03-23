@@ -87,7 +87,10 @@ def load_historical_data():
         return pd.DataFrame()
 
 # Streamlit UI
+#st.title("CarbonSense AI")
+st.set_page_config(page_title="CarbonSense AI", layout="wide")
 st.title("CarbonSense AI")
+
 
 # User Inputs
 with st.form("emissionsForm"):
