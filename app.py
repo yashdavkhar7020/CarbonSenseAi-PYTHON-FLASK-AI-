@@ -13,6 +13,9 @@ import os
 # Ensure the app runs on Cloud Run's assigned port
 port = int(os.environ.get("PORT", 8501))  # Default Streamlit port is 8501
 
+# Ensure Streamlit runs on the assigned port
+st.write(f"Running on port {port}")
+
 
 # Constants
 MARKET_RATE_PER_TON = 10  # Example market rate for carbon credits in USD per ton
